@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReservationApp2</title>
+    <title>PoteShare[kadai]</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+    <h1>Potepan Share</h1>
+    <p class="notice"><%= notice %></p> 
+    <p class="alert"><%= alert %></p>
+    <%# yieldの上が一般的。これはflashメッセージというもので、それぞれnotice,alertという変数に格納されています。
+     ログインした際やログアウトした際、フォームの送信エラーなど簡単な通知をしたい場合に使用します。%>
     <%= yield %>
   </body>
 </html>

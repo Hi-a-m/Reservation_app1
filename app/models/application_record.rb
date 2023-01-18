@@ -1,5 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+
+
+
 end
 
 #対応するデータベースのテーブルを用意しない場合は、
