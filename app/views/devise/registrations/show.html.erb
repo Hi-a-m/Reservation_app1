@@ -1,40 +1,29 @@
 <h1>設定</h1>
 <h2>アカウント</h2>
 
-<div class="UserContainer">
-    <ul class="SideNavigation">
-  <li class="SideNavigation__item active">
-    <a href="/users/account">アカウント</a>
-  </li>
-
-  <li class="SideNavigation__item ">
-   <a href="/users/:id">プロフィール</a>
-  </li>
-</ul>
 
 
-      <div class="AccountInformation__header">
+<%= link_to "アカウント", users_account_path(current_user) %><br>
+<%= link_to "プロフィール", user_path(current_user) %>
+
+
+
+      <div class="Account_titile">
         <h3>アカウント</h3>
-
-        <a class="AccountInformation__link" href="/users/edit">
-          <img alt="編集アイコン" src="/assets/icons/edit-blue-51638a3e490277aa2df5f37102d45f5fcdfd8cd6c58fc5add90a958fab5c45af.svg">
-          編集
-</a>      </div>
-
-      <div class="AccountInformation__input-group">
-        <label class="AccountInformation__label" for="email">メールアドレス</label>
-
-        <p class="AccountInformation__value">
-          riverdale.kampw@gmail.com
-        </p>
       </div>
+      
+      <div class="account-content">
+                 
+          <tr>
+          <td>メールアドレス</td>
+       
+          </tr>
 
-      <div class="AccountInformation__input-group">
-        <label class="AccountInformation__label" for="password">パスワード</label>
-
-        <p class="AccountInformation__value">
-          *********
-        </p>
+          <tr>
+          <td>パスワード</td>
+          </tr>
+        
+    
       </div>
-    </div>
-  </div>
+ 
+      

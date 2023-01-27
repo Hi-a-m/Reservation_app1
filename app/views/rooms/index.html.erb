@@ -1,2 +1,35 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<h2>登録済みルーム一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+    <th>ルーム画像</th>
+    <th>ルーム名</th>
+    <th>ルーム紹介</th>
+    <th>料金</th>
+    <th>作成日</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+    <% @rooms.each do |room| %>
+
+<tr>
+<td><%= image_tag room.image ,size: "200x150" if room.image.present? %></td>
+<!--この文がdbから写真画像を表示させている -->
+<td> <%= room.room_name %></td>
+<td> <%= room.introduction %></td>
+<td> <%= room.price %> </td>
+<td> <%= room.created_at.to_s(:datetime_jp) %></td>
+</tr>
+
+<td><%= link_to "詳細はこちら", room_path(room) %></td>
+
+<td><%= link_to "編集", edit_room_path(room) %></td>
+
+<% end %>
+
+</tbody>
+</table>

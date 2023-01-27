@@ -60,3 +60,9 @@ gem 'devise'
 gem 'carrierwave', '~> 2.0'
 
 gem 'mini_magick'
+
+gem 'image_processing'
+
+gem 'ransack'
+
+gem 'pry-rails'

@@ -1,9 +1,21 @@
 <h1>プロフィール編集</h1>
 
 <%= form_with model: @user do |form| %>
- 
+
+
+<div class="update-content">
+  <div class="row">
+      
+      <%= form.label :icon,"施設画像" %>
+      <%= form.file_field :icon %>
+  </div>
 </div>
+
   <div>名前<%= form.text_field :name %></div>
+
   <div>自己紹介<%= form.text_field :profile %></div>
+
   <div><%= form.submit "保存" %></div>
+  
 <% end %>
+

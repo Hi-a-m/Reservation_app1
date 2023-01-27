@@ -1,17 +1,13 @@
 <% if user_signed_in? && @user == current_user %>
 <h1>プロフィール</h1>
 
-<p>
-  <strong>アイコン画像</strong>
-  <%= @user.icon %>
-</p>
-<p>
-  <img src=<%= @user.icon %> class = "icon_image">
-</p>
+<p><strong>アイコン画像</strong><%= @user.icon %></p>
+<p><img src=<%= @user.icon %> class = "icon_image"></p>
+
 <p>名前 : <%= @user.name  %></p>
-<p>プロフィール : <%= @user.profile %></p>
-<% else %>
-  <h1>ユーザーページ</h1>
+
+<p>自己紹介 : <%= @user.profile %></p>
+
 <% end %>
 
 
