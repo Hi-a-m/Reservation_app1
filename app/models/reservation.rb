@@ -1,9 +1,9 @@
 class Reservation < ApplicationRecord
 
-    belongs_to :user#optional: true
-    belongs_to :room#optional: true
-
+    belongs_to :user, optional: true #nilを許可する
+    belongs_to :room, optional: true
     #下記確認
+    has_one_attached :image
 
     validates :start_date,presence: true
     validates :end_date,presence: true

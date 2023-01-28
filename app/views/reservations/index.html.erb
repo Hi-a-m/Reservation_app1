@@ -10,5 +10,32 @@
   <th>終了日</th>
   <th>予約確定日時</th>
  </thead>
+
+ <tbody>
+  <% @reservations.each do |reservation| %>
+  <% @rooms.each do |room| %>
+  <tr>
+  <td>
+  <% if room.image.attached? %>
+  <%= image_tag room.image ,size: "200x150" %>
+  <% end %></td>
+   
+    <td><%= room.room_name %></td>
+    <td><%= room.introduction %></td>
+    <td><%= reservation.introduction %></td>
+    <td><%= reservation.total_price %></td>
+    <td><%= reservation.start_date.strftime('%Y/%m/%d') %></td>
+    <td><%= reservation.end_date.strftime('%Y/%m/%d') %></td>
+    <td><%= reservation.updated_at.strftime('%Y/%m/%d') %></td>
+
+    <td><%= link_to "再予約",[:edit, reservation] %></td>
+
+    <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+
+   </tr>
+  <% end %>
+  <% end %>
+ </tbody>
 </table>
 
+<p><%= link_to"トップページへ", root_path%></p>

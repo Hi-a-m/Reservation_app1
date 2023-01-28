@@ -1,12 +1,10 @@
 class Room < ApplicationRecord
 
-        has_many :reservations
         belongs_to :user,optional: true
-
+        has_many :reservations_path
+        
         has_one_attached :image
         
-        validates :start_date, presence: true
-        validates :end_date, presence: true
         validates :room_name, presence: true
         validates :image, presence: true
         validates :price, presence: true
