@@ -1,35 +1,51 @@
-<h2>新規登録</h2>
+<div class="AccountFormWrapper">
+  <section class="AccountFormContainer">
+    <h2 class="AccountFormContainer__title">新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+    <form class="Form AccountForm" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="gM+ikQUs8To7oVxHTnglKGj8t43T8qcWS9HpqsI8lsvusJw1vuRmJoGrTfN18jGdZ+K43abYsjit4RUwEU6DhQ==">
+      
+      <div class="mb-3">
+        <label class="form-label Form__label--required"><%= f.label :"ユーザー名" %></label><br />
+        <input class="form-control" placeholder="ユーザー名を入力" autocomplete="name" type="text" name="user[name]" id="user_name">
+      </div>
 
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="mb-3">
+        <label class="form-label Form__label--required"><%= f.label :"メールアドレス" %></label><br />
+        <input class="form-control" placeholder="メールアドレスを入力" autocomplete="email" type="email" value="" name="user[email]" id="user_email">         
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="mb-3">
+        <label class="form-label Form__label--required" for="user_password"><%= f.label :"パスワード" %></label><br />
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <input class="form-control" placeholder="パスワードを入力" type="password" name="user[password]" id="user_password">
+      </div>
 
-<%= render "devise/shared/links" %>
+
+
+      <div class="mb-3">
+        <label class="form-label Form__label--required"><%= f.label :"確認用パスワード" %></label><br />
+        <input class="form-control" placeholder="確認用パスワードを入力" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+      </div>
+
+
+
+      <input type="submit" name="commit" value="新しいアカウントを作成" class="btn mb-3 AccountForm__button AccountForm__button--primary" data-disable-with="新しいアカウントを作成">    </div>
+  
+    </form>
+    <% end %>
+  </section>
+</div>
+
+
+
+
+

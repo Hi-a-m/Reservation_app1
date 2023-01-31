@@ -6,11 +6,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def show
     @user = current_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id, :email])
   end
   # GET /resource/sign_up
   def new
-    @user = current_user
+    @user = User.new
   end
 
   # POST /resource

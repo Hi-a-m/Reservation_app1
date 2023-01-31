@@ -6,17 +6,52 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
   </head>
 
   <body>
-    <h1>Potepan Share</h1>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%= link_to "Sample", root_path, :class => "navbar-brand" %>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to "新規登録",   new_user_registration_path, :class => "d-none d-lg-block btn btn-primary rounded-pill" %>
+            <%= link_to "新規登録",   new_user_registration_path, :class => "d-block d-lg-none nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, :class => "d-none d-lg-block btn btn-outline-primary rounded-pill" %>
+            <%= link_to "ログイン", new_user_session_path, :class => "d-block d-lg-none nav-link" %>
+          </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+</header>
+
 
     <%# yieldの上が一般的。これはflashメッセージというもので、それぞれnotice,alertという変数に格納されています。
      ログインした際やログアウトした際、フォームの送信エラーなど簡単な通知をしたい場合に使用します。%>
     <%= yield %>
+
+
+<footer class="Footer">
+  <div class="container-fluid">
+    <div class="Footer__logo">
+    <a href="/"><%= image_tag 'logo2.png', class: "Navbar__logo" %></a>
+
+    <p class="Footer__copyright">
+      Copyright © Potepan Share 2023 All rights reserved
+    </p>
+  </div>
+</footer>
+
+
   </body>
 </html>

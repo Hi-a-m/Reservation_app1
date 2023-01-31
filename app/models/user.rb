@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :reservations
        
 
-  mount_uploader :icon, IconUploader #追記 iconカラムにアップローダーを紐づけてますよという内容
+  mount_uploader :icon, ImageUploader #追記 iconカラムにアップローダーを紐づけてますよという内容
 
-  validates :name, presence: true #追記空白はだめ
+  validates :name, presence: true, on: :create #追記空白はだめ
   validates :profile, length: { maximum: 200 } #追記
 
 

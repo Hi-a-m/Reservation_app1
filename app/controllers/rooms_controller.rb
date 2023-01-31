@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :set_q, only: [:index, :search]
 
   def index   #rooms GET    /rooms
     @rooms = Room.all   #allメソッドはroomsテーブルのレコードを全て取得できるメソッド
@@ -28,10 +29,6 @@ class RoomsController < ApplicationController
       end
   end
 
-  def search   #search_rooms GET    /rooms/search
-    @user = current_user
-    @results = @q.result
-  end
 
   def edit   #edit_room GET    /rooms/:id/edit
     @room = Room.find(params[:id])
@@ -50,13 +47,23 @@ class RoomsController < ApplicationController
   def destroy   #DELETE /rooms/:id
   end
 
+  def search
+    @results = @q.result #resultメソッド	ransackメソッドで取得したデータをActiveRecord_Relationのオブジェクトに変換するメソッドです
+    @user = current_user
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_room
-    @room = Room.find(params[:id])
+  def set_q
+    @q = Room.ransack(params[:q]) 
+    #ransackメソッド送られてきたパラメーターを元にテーブルからデータを検索するメソッドです。
+    #params[:q]	この後に作成するビューファイルから送られてくるパラメーターです。
   end
 
+  #def set_user
+    #@user = User.find(params[:id])
+  #end
   
   def room_params
     params.require(:room).permit(:room_name, :introduction, :price, :address, :image)

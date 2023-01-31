@@ -9,16 +9,13 @@ class ReservationsController < ApplicationController
      #new_reservation GET    /reservations/new
     def new
         @user = current_user
-        @rooms = Room.all
         @reservation = Reservation.new(params.require(:reservation).permit(:start_date, :end_date, :people, :room_id, :user_id, :total_price, :total_day))
         @room = Room.find(params[:reservation][:room_id])
     end
   
     def create
         @user = current_user
-        @rooms = Room.all
         @reservation = Reservation.new(params.require(:reservation).permit(:start_date, :end_date, :people, :room_id, :user_id, :total_price, :total_day))
-        
         if @reservation.save!
             flash[:notice] = "予約が完了しました"
             redirect_to reservations_path
@@ -44,6 +41,14 @@ class ReservationsController < ApplicationController
               render "edit"
           end
     end
+
+
+    def search #エリア検索、キーワード検索の双方の機能を設定する
+        @user = current_user.id
+        @q = Room.ransack(params[:q])
+        @results = @q.result(distinct: true)
+    end
+
 
     def destroy #DELETE /reservations/:id
        @reservation = Reservation.find(params[:id])
