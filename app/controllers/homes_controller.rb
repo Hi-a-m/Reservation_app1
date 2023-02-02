@@ -1,4 +1,5 @@
 class HomesController < ApplicationController
+    before_action :set_q, only: [:index, :search]
 
     def top
         @user = current_user
@@ -15,6 +16,7 @@ class HomesController < ApplicationController
         @q = Room.ransack(params[:q]) #params[:q]には検索パラメータが渡され、resultにより検索結果を得られる。
         #検索オブジェクト
         @results = @q.result
+        @rooms = Room.search(params[:keyword])
     end
 
     def new
@@ -31,7 +33,11 @@ class HomesController < ApplicationController
     private
     
     def set_q
-      @q = Room.ransack(params[:q])
+      @q = Room.ransack(params[:q]) 
     end
   
 end
+
+#params[:q]	この後に作成するビューファイルから送られてくるパラメーターです。
+#ransackメソッド	送られてきたパラメーターを元にテーブルからデータを検索するメソッドです。(whereメソッドのransack版というイメージです。)
+#resultメソッド	ransackメソッドで取得したデータをActiveRecord_Relationのオブジェクトに変換するメソッドです。

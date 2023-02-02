@@ -1,10 +1,12 @@
 class RoomsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
+
   def index   #rooms GET    /rooms
     @rooms = Room.all   #allメソッドはroomsテーブルのレコードを全て取得できるメソッド
     @user = current_user
   end
+  
 
   def show    #room GET    /rooms/:id
     @user = current_user
@@ -12,10 +14,14 @@ class RoomsController < ApplicationController
     @reservation = Reservation.new
   end
 
+
+
   def new   #new_room GET    /rooms/new
     @user = current_user
     @room = Room.new #これからデータを作成するという宣言
   end
+
+
 
   def create   #POST   /rooms
       @user = current_user
@@ -30,13 +36,16 @@ class RoomsController < ApplicationController
   end
 
 
+
   def edit   #edit_room GET    /rooms/:id/edit
     @room = Room.find(params[:id])
   end
 
+
+
   def update   #PATCH  /rooms/:id
     @room = Room.find(params[:id])
-    if @room.update(params.require(:room).permit(:room_name, :introduction, :price, :image))
+    if @room.update(params.require(:room).permit(:room_name, :introduction, :price, :image, :address))
        flash[:notice] = "情報を更新しました"
        redirect_to :rooms
     else
@@ -44,12 +53,24 @@ class RoomsController < ApplicationController
     end
   end
 
+
+
   def destroy   #DELETE /rooms/:id
+      @room = Room.find(params[:id])
+      @room.destroy
+      flash[:notice] = "削除しました"
+        redirect_to rooms_path
   end
 
   def search
-    @results = @q.result #resultメソッド	ransackメソッドで取得したデータをActiveRecord_Relationのオブジェクトに変換するメソッドです
+      @user = current_user
+      @results = @q.result #ransack用
+  end
+
+
+  def look
     @user = current_user
+    @rooms = Room.search(params[:keyword])
   end
 
   private

@@ -1,45 +1,49 @@
-<h3>施設詳細&ルーム予約ページ</h3>
+<h3>施設詳細&予約ページ</h3>
 
 
-<table>
+<%= form_with model: @reservation, method: :get, url: new_reservation_path do |f| %><table>
 
- <tr>
-  <td><%= image_tag @room.image ,size: "300x250" %></td>
- </tr>
+    <tr>
+      <td><%= image_tag @room.image ,size: "300x250" %></td>
+    </tr>
 
- <tr>
-  <td><%= @room.room_name %></td>
- </td>
+    <tr>
+      <td>ルーム名：<%= @room.room_name %></td>
+    </td>
  
- <tr>
-  <td><%= @room.address %></td>
- </tr>
+    <tr>
+      <td>アドレス：<%= @room.address %></td>
+    </tr>
 
- <tr>
-  <td><%= @room.introduction %></td>
- </tr>
+    <tr>
+      <td>ルーム詳細：<%= @room.introduction %></td>
+    </tr>
 
-  <tr>
-  <td>￥<%= @room.price %>〜</td>
- </tr>
+    <tr>
+      <td>一日当たりの金額：￥<%= @room.price %>〜</td>
+    </tr>
 
 </table>
 
- <%= form_with model: @reservation, url: new_reservation_path, method: :get do |f| %>
+    <%= f.hidden_field :room_id, value:@room.id %>
+    <%= f.hidden_field :user_id, value:current_user.id %>
+    <%= f.hidden_field :total_price, value: @room.price %>
+    <%= f.hidden_field :room_name, value: @room.room_name %>
+    <%= f.hidden_field :image, value: @room.image%>
+    <%= f.hidden_field :introduction, value: @room.introduction %>
 
-<%= f.hidden_field:room_id, value:@room.id %>
-<%= f.hidden_field:user_id, value:current_user.id %>
+    <label>開始日</label>
+        <%= f.text_field :start_date%>
 
-<label>開始日</label>
-<%= f.text_field  :start_date%>
+    <label>終了日</label>
+        <%= f.text_field :end_date%>
 
-<label>終了日</label>
-<%= f.text_field :end_date%>
+    <label>人数</label>
+        <%= f.text_field :people%>
 
-<label>人数</label>
-<%= f.text_field :people%>
-
-<%= f.submit "この日程で予約する"%>
-
+    <%= f.submit "この日程で予約する"%>
 <% end %>
+
+    <%= link_to "戻る", :back %>
+    
 

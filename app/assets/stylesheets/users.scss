@@ -127,7 +127,9 @@ label {
   width: 100%;
 }
 
-.btn {
+btn {
+  border-radius: 10px;/*角の丸み*/
+  border: solid 3px #6091d3;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
@@ -192,7 +194,7 @@ input[type="hidden" i] {
   /*　新規作成 */
 
 
-.AccountForm__button--secondary {
+.AccountForm__--secondary {
       border: 1px solid #e0e0e0;
       color: #6a6a6a;
       line-height: 44px;
@@ -474,5 +476,11 @@ textarea {
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+}
+
+.AccountForm__button{
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
 }
 

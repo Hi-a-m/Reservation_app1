@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   mount_uploader :icon, ImageUploader #追記 iconカラムにアップローダーを紐づけてますよという内容
 
-  validates :name, presence: true, on: :create #追記空白はだめ
+  validates :name, on: :create, presence: true #追記空白はだめ
   validates :profile, length: { maximum: 200 } #追記
 
 

@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
 
-        belongs_to :user,optional: true
+        belongs_to :user, optional: true
         has_many :reservations_path
         
         has_one_attached :image
@@ -11,9 +11,11 @@ class Room < ApplicationRecord
         validates :address, presence: true
         validates :introduction, presence: true
       
-        def self.room_search(search)
+
+
+        def self.search(search)
           if search != ""
-            Room.where('text LIKE(?)', "%#{search}%")
+            Room.where(['room_name LIKE(?) OR introduction LIKE(?) OR address LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
           else
             Room.all
           end

@@ -1,4 +1,3 @@
-
 <body>
 <div class="FirstView">
 <section class="container">
@@ -10,13 +9,19 @@
 
 
   <div class="FirstViewSearch">
-      <%= search_form_for @q, url: search_homes_path do |f| %>
-        <input class="form-control FirstViewSearch__input" placeholder="エリア名を入力" type="text" name="area" id="area">
-        <input type="submit" name="commit" value="検索" class="btn FirstViewSearch__button" data-disable-with="検索">
+      <%= search_form_for @q, url: search_rooms_path do |f| %>
+    <div class="Search__Field">
+      <%= f.search_field :address_cont, placeholder: "エリアを入力" %>
+    </div>
+  <br>
+    <div class="FirstViewSearch__button">
+      <%= f.submit '検索' %>
+     </div>
       <% end %>
   </div>
 </section>
 </div>
+
 
 
 
@@ -27,66 +32,68 @@
     <div class="RecommendAreas">
 
     <div class="RecommendArea RecommendArea--tokyo">
-    <%= link_to search_homes_path(q: {address_cont: "東京" }) do %>
-       <span class="RecommendArea__name RecommendArea__name--ja">東京</span>
-       <br>
-       <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-          </svg>
-          Tokyo
-        </span>
-    <% end %>
+      <%= link_to search_homes_path(q: {address_cont: "東京" }) do %>
+        <span class="RecommendArea__name RecommendArea__name--ja">東京</span>
+        <br>
+          <span class="RecommendArea__name RecommendArea__name--en">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+            </svg>
+            Tokyo
+          </span>
+      <% end %>
     </div>
 
 
 
 
     <div class="RecommendArea RecommendArea--osaka">
-    <%= link_to search_homes_path(q: {address_cont: "大阪" }) do %>
+      <%= link_to search_homes_path(q: {address_cont: "大阪" }) do %>
         <span class="RecommendArea__name RecommendArea__name--ja">大阪</span>
         <br>
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-          </svg>
-          Osaka
-        </span>
-    <% end %>
+          <span class="RecommendArea__name RecommendArea__name--en">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+            </svg>
+            Osaka
+          </span>
+      <% end %>
     </div>
 
 
 
 
     <div class="RecommendArea RecommendArea--kyoto">
-    <%= link_to search_homes_path(q: {address_cont: "京都" }) do %>
+      <%= link_to search_homes_path(q: {address_cont: "京都" }) do %>
          <span class="RecommendArea__name RecommendArea__name--ja">京都</span>
-    <% end %>
+         <br>
             <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-          </svg>
-          Kyoto
-        </span>
-      </div>
+            </svg>
+            Kyoto
+          </span>
+      <% end %>
+    </div>
 
     
 
     <div class="RecommendArea RecommendArea--sapporo">
-    <%= link_to search_homes_path(q: {address_cont: "札幌" }) do %>
+      <%= link_to search_homes_path(q: {address_cont: "札幌" }) do %>
         <span class="RecommendArea__name RecommendArea__name--ja">札幌</span>
-<% end %>
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+        <br>
+          <span class="RecommendArea__name RecommendArea__name--en">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-          </svg>
-          Sapopro
+            </svg>
+            Sapopro
         </span>
+      <% end %>
     </div>
-  </div>
-  </section>
-<br>
 
+  
+  </section>
+  </div>
 </body>
 
 

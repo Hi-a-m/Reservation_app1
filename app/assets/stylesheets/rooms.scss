@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /*登録済みルーム画像設定*/
+
 .image{
     width:250px;
     height: 500px;
@@ -10,27 +11,20 @@
     vertical-align: middle;
    }
 
+   
 /*index*/
 
 .OwnRoomsContainer {
     margin-top: 40px;
-    margin-bottom: 260px;
 }
 
 
-.container, .container-fluid {
+.container {
     max-width: 1440px;
     padding: 0 32px;
 }
 
 
-.title h2 {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 39px;
-    margin-bottom: 24px;
-    margin-top: 0;
-}
 
 .table-responsive {
     overflow-x: auto;
@@ -52,7 +46,6 @@
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
-    vertical-align: top;
     border-color: #dee2e6;
     caption-side: bottom;
     border-collapse: collapse;
@@ -322,3 +315,172 @@ textarea {
     column-count: initial !important;
 }
 
+
+
+.SearchRoomsFormContainer {
+    background-color: #dfe2e6;
+    height: 125px;
+}
+
+.SearchRoomsForm {
+    display: flex;
+    grid-gap: 16px;
+    gap: 16px;
+    margin-left: 500px;
+    margin-top: 40px;
+    margin-right: 10px;
+    width: 285px;
+    box-sizing: border-box;
+}
+
+
+.SearchRoom {
+    height: 45px;
+    width: 285px;
+}
+
+.Search {
+    height: 45px;
+    width: 285px;
+
+}
+
+.SearchRoomsForm__button {
+    font-size: 16px;
+    line-height: 24px;
+    height: 45px;
+    width: 100px;
+    margin-top: 40px;
+}
+
+
+.SearchRoomsForm__input-group {
+    height: 45px;
+    padding-left: 45px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+
+/*新規登録*/
+
+
+.FormWrapper {
+    display: flex;
+    height: fit-content;
+    padding: 40px 0 180px;
+}
+
+.FormContainer {
+    background-color: #fff;
+    border-radius: 12px;
+    margin: auto;
+    width: 702px;
+}
+
+
+
+.update-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    margin-left: 200px;
+}
+
+
+.row {
+    color: #333;
+    font-size: 16px;
+    line-height: 26px;
+    width: 33%;
+}
+
+.RoomsForm__input {
+    width: 60%;
+    font-size: 16px;
+}
+
+.update-content{
+width: 60%;
+font-size: 16px;
+}
+
+.RoomsForm__button--cancel {
+    border: 10px solid #e0e0e0;
+    color: #a70a0a;
+    line-height: 44px;
+    color: #333;
+}
+
+
+
+.RoomsForm__button--submit {
+    
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.RoomsForm__button {
+    align-items: center;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    height: 58px;
+    font-size: 18px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 45px;
+    line-height: 21px;
+    width: 100%;
+}
+
+
+
+/*検索結果*/
+
+
+/*親要素*/
+.SearchRooms_FormContainer{
+    display: flex;
+    background-color: #dfe2e6;
+    height: 125px;
+}
+
+
+.search-form {
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.search-inputt{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+form.search-form {
+    margin-top: 0px;
+    margin-left: 40px;
+}
+
+.RoomsContainer {
+    margin-bottom: 260px;
+    padding-top: 40px;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 32px;
+}
+
+
+.RoomsContainer__result {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 24px;
+}
+
+.room_image {
+    width: 120px;
+    height: 70px;
+}
