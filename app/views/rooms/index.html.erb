@@ -22,7 +22,7 @@
     <% @rooms.each do |room| %>
 
         <tr>
-        <td><%= image_tag room.image ,size: "200x150" %></td>
+        <td><%= image_tag room.image.url ,size: "200x150" %></td>
         <td><%= link_to "#{room.room_name}", {controller: 'rooms', action: 'show', id: room.id} %> </td>
         <td> <%= room.introduction %></td>
         <td class="text-nowrap"><%= room.price %> </td>

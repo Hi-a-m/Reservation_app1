@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
 
   def update   #PATCH  /rooms/:id
     @room = Room.find(params[:id])
-    if @room.update(params.require(:room).permit(:room_name, :introduction, :price, :image, :address))
+    if @room.update(params.require(:room).permit(:room_name, :introduction, :price, :address, :image))
        flash[:notice] = "情報を更新しました"
        redirect_to :rooms
     else

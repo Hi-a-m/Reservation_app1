@@ -1,18 +1,21 @@
 <h class="title">予約内容の確認</h>
 
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 
+<%= render "shared/error", obj: @reservation %>
  
   <table class="table is-hoverable">
 
    
     <tr>
       <th>開始日:</th>
-      <td><%= @reservation&.start_date&.strftime("%Y年%m月%d日") %></td>
+      <td><%= @reservation&.start_date&.strftime("%Y/%m/%d") %></td>
     </tr>  
     
     <tr>
       <th>終了日:</th>
-      <td><%= @reservation.end_date.strftime("%Y年%m月%d日") %></td>
+      <td><%= @reservation.end_date.strftime("%Y/%m/%d") %></td>
     </tr>
 
 

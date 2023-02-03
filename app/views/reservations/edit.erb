@@ -1,5 +1,8 @@
 <h2>再予約する</h2>
 
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
 <%= form_with model: @reservation do |f| %>
 
 <table>

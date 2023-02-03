@@ -1,10 +1,19 @@
 <h3>施設詳細&予約ページ</h3>
 
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
 
 <%= form_with model: @reservation, method: :get, url: new_reservation_path do |f| %><table>
 
     <tr>
-      <td><%= image_tag @room.image ,size: "300x250" %></td>
+      <td><% if @room.image? %>
+      <p>
+
+      <%= image_tag @room.image.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      </p>
+      <% end %>
+      </td>
     </tr>
 
     <tr>

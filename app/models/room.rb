@@ -3,13 +3,14 @@ class Room < ApplicationRecord
         belongs_to :user, optional: true
         has_many :reservations_path
         
-        has_one_attached :image
-        
+        mount_uploader :image, ImageUploader
+
         validates :room_name, presence: true
         validates :image, presence: true
         validates :price, presence: true
         validates :address, presence: true
         validates :introduction, presence: true
+        
       
 
 

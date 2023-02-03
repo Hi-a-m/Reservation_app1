@@ -8,4 +8,8 @@ ja:
         email: メールアドレス
         introduction: 紹介
         price: 価格
+      room:
+        start_date: 開始日
+        end_date: 終了日
+        
 

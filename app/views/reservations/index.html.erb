@@ -18,13 +18,10 @@
       <% @reservations.each do |reservation| %>
 
       <tr>
-        <td>   
-          <%= link_to reservation.room do %>
-          <%= image_tag reservation.room.image,size: "120x70" %>
-          <% end %>
-        </td>
-
-        <td><%= link_to reservation.room.room_name,reservation.room %></td>
+        <td><%= image_tag reservation.room.image.url,size: "200x150" %></td>
+        <td><%= link_to reservation.room do %>
+            <%= reservation.room.room_name %>
+            <% end %></td>
         <td><%= reservation.room.introduction %></td>
         <td class="text-nowrap">¥<%= reservation.total_price %></td>
         <td class="text-nowrap"><%= reservation&.start_date&.strftime("%Y/%m/%d") %></td>

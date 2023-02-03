@@ -54,7 +54,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   def default_url
-    'icon.png'
+    'image.png'
   end
   #デフォルトでの画像を指定しています。
   #プレビューでは最初にここで指定した画像が表示されます。

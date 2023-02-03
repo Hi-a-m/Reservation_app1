@@ -12,6 +12,8 @@ module ReservationApp2
     config.load_defaults 6.1
     
     config.i18n.default_locale = :ja
+
+    config.time_zone = 'Tokyo'
     # 上記のコードを記載
 
     # Configuration for the application, engines, and railties goes here.

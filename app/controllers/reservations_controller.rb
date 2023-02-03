@@ -2,8 +2,6 @@ class ReservationsController < ApplicationController
     def index
         @user = current_user
         @reservations = Reservation.all
-        @rooms = Room.all #テーブルの全データを取得する　
-      
     end
   
      #new_reservation GET    /reservations/new
@@ -14,10 +12,9 @@ class ReservationsController < ApplicationController
     end
   
     def create
-        
         @user = current_user
         @reservation = Reservation.new(params.require(:reservation).permit(:start_date, :end_date, :people, :room_id, :user_id, :total_price, :total_day))
-        if @reservation.save
+        if @reservation.save!
             flash[:notice] = "予約が完了しました"
             redirect_to reservations_path
         else
